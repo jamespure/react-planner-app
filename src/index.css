@@ -1,0 +1,152 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+  font-size: 16px;
+}
+
+h1 {
+  font-size: 3.075rem;
+}
+
+h3 {
+  font-size: 1.4rem;
+}
+
+.btn {
+  display: inline-block;
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-family: inherit;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+.container {
+  max-width: 500px;
+  margin: 30px auto;
+  overflow: auto;
+  min-height: 300px;
+  border: 1px solid gray;
+  padding: 30px;
+  border-radius: 5px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.add-form {
+  margin-bottom: 40px;
+}
+
+.form-control {
+  margin: 20px 0;
+}
+
+.form-control label {
+  display: block;
+  font-size: 1.5rem;
+}
+
+.form-control input {
+  width: 100%;
+  height: 40px;
+  margin-top: 5px;
+  padding: 3px 7px;
+  font-size: 1.075rem;
+}
+
+.form-control-check {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form-control-check label {
+  flex: 1;
+}
+
+.form-control-check input {
+  flex: 1;
+  height: 20px;
+}
+
+.plan {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  padding: 10px 20px;
+  background: #f4f4f4;
+  cursor: pointer;
+}
+
+.plan h3 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.plan.reminder {
+  border-bottom: 5px solid green;
+}
+
+@media screen and (max-width: 500px) {
+  body {
+    font-size: 12px;
+  }
+  h1 {
+    font-size: 2.075rem;
+  }
+
+  h3 {
+    font-size: 1rem;
+  }
+
+  p {
+    font-size: 0.75rem;
+  }
+
+  .form-control label {
+    font-size: 1rem;
+  }
+
+  .form-control input {
+    height: 20px;
+    margin-top: 3.5px;
+    padding: 1.5px 2.5px;
+    font-size: 0.75rem;
+  }
+
+  .btn {
+    font-size: 0.7rem;
+    padding: 5px 10px;
+    margin: 3.5px;
+  }
+}
