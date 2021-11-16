@@ -1,12 +1,28 @@
 import { useState } from "react";
 
-const AddPlan = () => {
+const AddPlan = ({ onAdd }) => {
   const [plan, setPlan] = useState("");
-  const [date, setDate] = useState("");
+  const [day, setDay] = useState("");
   const [reminder, setReminder] = useState(false);
 
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const newPlan = { plan, day, reminder };
+
+    if (!plan && !setDay) {
+      alert("Please enter a plan and date");
+      return;
+    }
+
+    onAdd(newPlan);
+
+    setReminder(false);
+    setPlan("");
+    setDay("");
+  };
+
   return (
-    <form>
+    <form className="add-form" onSubmit={onSubmit}>
       <div className="form-control">
         <label htmlFor="plan">Plan</label>
         <input
@@ -22,10 +38,10 @@ const AddPlan = () => {
           type="text"
           name="date"
           placeholder="Enter Date & Time"
-          onChange={(e) => setDate(e.target.value)}
+          onChange={(e) => setDay(e.target.value)}
         />
       </div>
-      <div className="form-control-check">
+      <div className="form-control form-control-check">
         <label htmlFor="plan">Reminder</label>
         <input
           type="checkbox"

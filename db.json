@@ -1,0 +1,10 @@
+{
+  "plans": [
+    {
+      "plan": "go to mcdonalds",
+      "day": "thursday @10am",
+      "reminder": false,
+      "id": 1
+    }
+  ]
+}
