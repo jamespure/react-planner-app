@@ -1,10 +1,15 @@
 import Plan from "./Plan";
 
-const Plans = ({ plans, onDelete }) => {
+const Plans = ({ plans, onDelete, onToggle }) => {
   return (
     <>
       {plans.map((plan) => (
-        <Plan plan={plan} key={plan.id} onDelete={onDelete}/>
+        <Plan
+          plan={plan}
+          key={plan.id}
+          onDelete={onDelete}
+          onToggle={onToggle}
+        />
       ))}
     </>
   );

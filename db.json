@@ -1,9 +1,9 @@
 {
   "plans": [
     {
-      "plan": "go to mcdonalds",
-      "day": "thursday @10am",
-      "reminder": false,
+      "plan": "Get Milk",
+      "day": "Tue At 2:30am",
+      "reminder": true,
       "id": 1
     }
   ]
