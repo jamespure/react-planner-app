@@ -1,7 +1,12 @@
 import { FETCH_PLANS } from "./types";
 
 export const fetchPlans = () => async (dispatch) => {
-  const res = await fetch("http://localhost:5000/plans");
-  const data = await res.json();
-  await dispatch({ type: FETCH_PLANS, payload: data });
+  const getPlans = await fetch(
+    "https://my-json-server.typicode.com/jamespure/my-json-server/db"
+  );
+
+  const res = await getPlans.json();
+
+  const data = await res;
+  await dispatch({ type: FETCH_PLANS, payload: data.plans });
 };

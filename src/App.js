@@ -9,9 +9,7 @@ function App({ fetchPlans, plans }) {
   const [showAdd, setShowAdd] = useState(false);
   
 
-  useEffect(() => {
-    fetchPlans()
-  }, []);
+ 
 
   // fetch plans from server
   const fetchPlansFromServer = async () => {
@@ -77,17 +75,11 @@ function App({ fetchPlans, plans }) {
     <div className="container">
       <Header showAdd={showAdd} onAdd={() => setShowAdd(!showAdd)} />
       {showAdd && <AddPlan onAdd={onAdd} />}
-      {plans.length > 0 ? (
-        <Plans plans={plans} onDelete={deletePlan} onToggle={toggleReminder} />
-      ) : (
-        "No Plan To Show"
-      )}
+     
+        <Plans />
+      
     </div>
   );
 }
 
-const mapStateToProps = (state) => ({
-  plans: state.plans.items
-})
-
-export default connect(mapStateToProps, { fetchPlans })(App);
+export default App;
