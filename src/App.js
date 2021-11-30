@@ -1,18 +1,16 @@
 import { useState, useEffect } from "react";
+import { connect } from 'react-redux';
 import AddPlan from "./components/AddPlan";
 import Header from "./components/Header";
 import Plans from "./components/Plans";
+import { fetchPlans } from './redux/actions/plansActions';
 
-function App() {
+function App({ fetchPlans, plans }) {
   const [showAdd, setShowAdd] = useState(false);
-  const [plans, setPlans] = useState([]);
+  
 
   useEffect(() => {
-    const getPlans = async () => {
-      const plans = await fetchPlansFromServer();
-      setPlans(plans);
-    };
-    getPlans();
+    fetchPlans()
   }, []);
 
   // fetch plans from server
@@ -42,7 +40,7 @@ function App() {
 
     const data = await res.json();
 
-    setPlans([...plans, data]);
+    
   };
 
   // delete plan
@@ -50,7 +48,7 @@ function App() {
     await fetch(`http://localhost:5000/plans/${id}`, {
       method: "DELETE",
     });
-    setPlans(plans.filter((plan) => plan.id !== id));
+    
   };
 
   // toggle Reminder
@@ -68,11 +66,11 @@ function App() {
 
     const data = await res.json();
 
-    setPlans(
-      plans.map((plan) =>
-        plan.id === id ? { ...plan, reminder: data.reminder } : plan
-      )
-    );
+    // setPlans(
+    //   plans.map((plan) =>
+    //     plan.id === id ? { ...plan, reminder: data.reminder } : plan
+    //   )
+    // );
   };
 
   return (
@@ -88,4 +86,8 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  plans: state.plans.items
+})
+
+export default connect(mapStateToProps, { fetchPlans })(App);
